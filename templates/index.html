@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Showroom</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Greeva's Collections</h1>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#models">Car Models</a></li>
+                    <li><a href="#featured">Featured Car</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div id="clock"></div>
+
+            <section id="home">
+                <h2>  Welcome to Our Car Showroom</h2>
+                <img src="{{ url_for('static', filename='images/car1.jpg') }}" alt="Car Image" class="zoom-in">
+            </section>
+
+            <section id="about">
+                <h2>About Us</h2>
+                <p>We offer the latest and greatest cars with the best deals in town. Our showroom has a wide variety of models to suit every need and budget.</p>
+            </section>
+
+            <section id="models">
+                <h2>Car Models</h2>
+                <div class="car-model">
+                    <img src="{{ url_for('static', filename='images/car2.jpg') }}" alt="Car Model 1" class="slide-in">
+                    <h3 class="model-name">Nissan R8</h3>
+                    <p class="price">$85,000</p>
+                </div>
+                <div class="car-model">
+                    <img src="{{ url_for('static', filename='images/car3.jpg') }}" alt="Car Model 2" class="slide-in">
+                    <h3 class="model-name">Mercedes C class</h3>
+                    <p class="price">$50,000</p>
+                </div>
+            </section>
+
+            <section id="featured">
+                <h2>Featured Car</h2>
+                <div class="featured-car">
+                    <img src="{{ url_for('static', filename='images/featured.jpg') }}" alt="Featured Car" class="fade-in">
+                    <div class="car-info">
+                        <h3>2024 Special Edition Hyundai</h3>
+                        <p>This car features state-of-the-art technology and unmatched performance. Experience luxury and power like never before.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="testimonials">
+                <h2>Testimonials</h2>
+                <div class="testimonial">
+                    <p>"I had an amazing experience at this showroom. The staff were incredibly helpful and the car I purchased is fantastic!"</p>
+                    <h4>- John Doe</h4>
+                </div>
+                <div class="testimonial">
+                    <p>"Best car buying experience ever! The selection is great and the prices are unbeatable."</p>
+                    <h4>- Jane Smith</h4>
+                </div>
+            </section>
+
+            <section id="gallery">
+                <h2>Gallery</h2>
+                <div class="gallery">
+                    <img src="{{ url_for('static', filename='images/car4.jpg') }}" alt="Car Image" class="zoom-in">
+                    <img src="{{ url_for('static', filename='images/car5.jpg') }}" alt="Car Image" class="zoom-in">
+                    <img src="{{ url_for('static', filename='images/car6.jpg') }}" alt="Car Image" class="zoom-in">
+                </div>
+            </section>
+
+            <section id="contact">
+                <h2>Contact Us</h2>
+                <form action="/submit" method="POST">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    <label for="car_model">Car Model Interested In:</label>
+                    <input type="text" id="car_model" name="car_model" required>
+                    <button type="submit">Submit</button>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Greeva's Collection. All rights reserved.</p>
+            <p>Contact: <a href="mailto:greevapatel04@gmai.com">greevapatel04@gmail.com</a></p>
+            <p>Number:    9998475638</p>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for clock
+        function updateTime() {
+            const now = new Date();
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const seconds = now.getSeconds().toString().padStart(2, '0');
+            document.getElementById('clock').innerText = `${hours}:${minutes}:${seconds}`;
+        }
+
+        setInterval(updateTime, 1000);
+    </script>
+</body>
+</html>
